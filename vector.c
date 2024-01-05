@@ -66,11 +66,11 @@
 	}
 
 #define vector_append(vec, value) \
-	(vec)->append(vec, value);
+	vec.append(&vec, value);
 #define vector_pop(vec, out) \
-	(vec)->pop(vec, out);
+	vec.pop(&vec, out);
 #define vector_free(vec) \
-	(vec)->free(vec);
+	vec.free(&vec);
 
 VECTOR_DEFINE_FOR_TYPE(int)
 
@@ -79,26 +79,26 @@ int main(void) {
 	if(vector_int_init(&vec, 5))
 		return 1;
 
-	vector_append(&vec, 1);
-	vector_append(&vec, 2);
-	vector_append(&vec, 3);
-	vector_append(&vec, 4);
-	vector_append(&vec, 5);
+	vector_append(vec, 1);
+	vector_append(vec, 2);
+	vector_append(vec, 3);
+	vector_append(vec, 4);
+	vector_append(vec, 5);
 
-	vector_append(&vec, 6);
+	vector_append(vec, 6);
 
 	for(size_t i = 0; i < vec.size; ++i)
 		printf("%i ", vec.data[i]);
 	printf("\n");
 
-	vector_pop(&vec, NULL);
-	vector_pop(&vec, NULL);
+	vector_pop(vec, NULL);
+	vector_pop(vec, NULL);
 	
 	for(size_t i = 0; i < vec.size; ++i)
 		printf("%i ", vec.data[i]);
 	printf("\n");
 
-	vector_free(&vec);
+	vector_free(vec);
 
 	return 0;
 }
