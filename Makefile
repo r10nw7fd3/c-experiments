@@ -8,4 +8,4 @@ vector: vector.c
 clean:
 	rm -f vector
 
-.PHONY: clean
+.PHONY: all clean
