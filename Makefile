@@ -1,11 +1,16 @@
 CFLAGS:=-Wall -Wextra -std=c99 -O2
 
-all: templates_vector
+OUT:=templates_vector oop_point
 
-templates_vector: templates_vector.c
+all: $(OUT)
+
+templates_%: templates_%.c
+	$(CC) $(CFLAGS) -o $@ $<
+
+oop_%: oop_%.c
 	$(CC) $(CFLAGS) -o $@ $<
 
 clean:
-	rm -f templates_vector
+	rm -f $(OUT)
 
 .PHONY: all clean
