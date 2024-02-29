@@ -1,3 +1,3 @@
-## Templates in C Experiment
+## C Experiments
 
 TBU
